@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Financial Agile Integration Demo</title>
+
+    <!-- webpack bundled css -->
+    <link rel="stylesheet" href="css/patternfly.min.css">
+    <link rel="stylesheet" href="css/patternfly-additions.min.css">
+
+    <!-- webpack bundled dependencies -->
+    <script src="main.bundle.js"></script>
+  </head>
+  <body>
+
+<!-- nav -->
+<nav class="navbar navbar-default navbar-pf" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/">
+      Red Hat Integration
+    </a>
+  </div>
+
+</nav>
+
+<div class="container-fluid">
+
+    <div class="row">
+      <div class="col-md-12">
+
+        <div class="page-header">
+          <h1>Financial Agile Integration Demo</h1>
+        </div>
+
+        <div class="blank-slate-pf">
+          <div class="blank-slate-pf-icon">
+          </div>
+          <h1>Simple Banking Demo</h1>
+          <p>This simple gui interface allows you to do day to day personal banking from your bank account and Bitcoin account</p>
+          <p>Source of this Demo is available <a href="https://github.com/jbossdemocentral/fuse-financial-cicd">here</a>.</p>
+          <div class="form-group">
+						<label class="col-sm-2 control-label" for="exampleInput">API Host <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-html="true" title="" data-content=" Your Application URL, either from Apicast or your route" data-placement="top"><span class="fa fa-info-circle"></span></a></label>
+							<div class="col-sm-10">
+						  	<input type="text" id="ipaddress" class="form-control" value="">
+						  </div>
+					</div>
+					<BR/>
+          <BR/>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="exampleInput">API key <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-html="true" title="" data-content=" Your 3scale API access key" data-placement="top"><span class="fa fa-info-circle"></span></a></label>
+							<div class="col-sm-10">
+						  	<input type="text" id="apitoken" class="form-control" value="">
+						  </div>
+					</div>
+          <BR/>
+          <BR/>
+					<div class="col-sm-20">
+						<form class="form-horizontal">
+						  <div class="form-group">
+						    <label class="col-sm-2 control-label" for="exampleInput">Account Number <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-html="true" title="" data-content=" Here are the avaliable account numbers: <BR/> 123456 <BR/>234567 <BR/>345678 <BR/>223455 " data-placement="top"><span class="fa fa-info-circle"></span></a></label>
+
+						    <div class="col-sm-10">
+						      <input type="text" id="accountid" class="form-control" value="123456">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label class="col-sm-2 control-label" for="exampleInputDisabled">Account Type</label>
+						    <div class="col-sm-10">
+						      <input type="radio" name="moneysource" value="traditional" checked> Taditional Banking &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+						      <input type="radio" name="moneysource" value="bitcoin"> Bitcoin
+						    </div>
+						  </div>
+						  <div>
+							  <ul class="nav nav-tabs">
+								  <li class="active"><a href="#balance" aria-controls="balance" role="tab" data-toggle="balance">Balance</a></a>
+								  </li>
+								  <li><a href="#transfer" aria-controls="transfer" role="tab" data-toggle="transfer">Transfer</a></li>
+								</ul>
+
+								<div class="tab-content">
+							    <div role="tabpanel" class="tab-pane active" id="balance">
+							    	<BR/>
+							    	<BR/>
+							    	<div class="form-group">
+									    <label class="col-sm-2 control-label" for="exampleInputDisabled">Result:</label>
+									    <div class="col-sm-10">
+									      <input type="text" id="resultbalance" class="form-control">
+									    </div>
+									  </div>
+									  <div class="form-group">
+									    <div class="col-sm-offset-2 col-sm-10">
+									      <input type="button" id="submitbalance" class="btn btn-primary" value="Get Balance" ></input>
+									    </div>
+									  </div>
+							    </div>
+							    <div role="tabpanel" class="tab-pane" id="transfer">
+							    	<BR/>
+							    	<BR/>
+							    	<div class="form-group">
+									    <label class="col-sm-2 control-label" for="exampleInputDisabled">Recipient Account Number <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-html="true" title="" data-content=" Here are the avaliable account numbers: <BR/> 123456 <BR/>234567 <BR/>345678 <BR/>223455" data-placement="top"><span class="fa fa-info-circle"></span></a></label>
+									    <div class="col-sm-10">
+									      <input type="text" id="recptid" class="form-control">
+									    </div>
+									  </div>
+									  <div class="form-group">
+									    <label class="col-sm-2 control-label" for="exampleInputDisabled">Transfer amount</label>
+									    <div class="col-sm-10">
+									      <input type="text" id="amt" class="form-control">
+									    </div>
+									  </div>
+									  <div class="form-group">
+									    <label class="col-sm-2 control-label" for="exampleInputDisabled">Result:</label>
+									    <div class="col-sm-10">
+									      <input type="text" id="resulttransfer" class="form-control">
+									    </div>
+									  </div>
+									  <div class="form-group">
+									    <div class="col-sm-offset-2 col-sm-10">
+									      <input type="button" class="btn btn-primary" id="submitTransfer" value="Do Transfer"></input>
+									    </div>
+									  </div>
+							    </div>
+							  </div>
+							  <div>
+
+						</form>
+         </div>
+
+      </div>
+
+
+  </div>
+</div><!-- container -->
+
+<script>
+  // Initialize Popovers
+  $(document).ready(function() {
+    $('[data-toggle=popover]').popovers();
+
+    $(".nav-tabs a").click(function(){
+      $(this).tab('show');
+    });
+
+
+    $("#rh_logo").click(function(){
+    		ipaddress = $('#ipaddress').val();
+    		apitoken = $('#apitoken').val();
+  			$.get("http://"+ipaddress+"/demos/sourcegateway/logo/?user_key="+apitoken, function(data, status){
+		        $('#rh_logo').attr('src','img/redhat-logo-'+data+'.png');
+		    });
+		});
+
+
+    $("#submitbalance").click(function(){
+    		ipaddress = $('#ipaddress').val();
+    		if(ipaddress == null || ipaddress.trim() ==""){
+		    	alert ("Place specify an API Host");
+		    	return;
+		    }
+    		apitoken = $('#apitoken').val();
+    		accountid = $('#accountid').val();
+
+    		moneysource = $("input[name='moneysource']:checked").val();
+		    $.get("http://"+ipaddress+"/demos/sourcegateway/balance/"+accountid+"?moneysource="+moneysource+"&user_key="+apitoken,
+
+		    	function(data, status){
+		        if(status != "success"){
+	     					alert("Problem occured during API Call to gateway!");
+	     			}
+		        $("#resultbalance").val(data);
+		    }).fail(function(error) { alert("Problem occured during API Call to gateway!"); });
+		});
+
+    $("#submitTransfer").click(function(){
+		    ipaddress = $('#ipaddress').val();
+		    if(ipaddress == null || ipaddress.trim() ==""){
+		    	alert ("Place specify an API Host");
+		    	return;
+		    }
+		    apitoken = $('#apitoken').val();
+    		accountid = $('#accountid').val();
+    		recptid = $('#recptid').val();
+    		amt = $('#amt').val();
+
+    		moneysource = $("input[name='moneysource']:checked").val();
+
+		    $.post(
+		    	"http://"+ipaddress+"/demos/sourcegateway/transfer?moneysource="+moneysource+"&user_key="+apitoken,
+			  	{
+        		"recptid": recptid,
+        		"acctid": accountid,
+        		"amt": amt
+    			},
+	     		function(data, status){
+	     				if(status!="success"){
+	     					alert("Problem occured during API Call to gateway!");
+	     				}
+			        $("#resulttransfer").val(data);
+			    }).fail(function(error) { alert("Problem occured during API Call to gateway!"); });
+		});
+
+
+  });
+
+</script>
+  </body>
+</html>
